@@ -1,0 +1,59 @@
+//adding float number support to sass
+
+@function decimal-round ($number, $digits: 0, $mode: round) {
+  $n: 1;
+  // $number must be a number
+  @if type-of($number) != number {
+    @warn '#{ $number } is not a number.';
+    @return $number;
+  }
+  // $digits must be a unitless number
+  @if type-of($digits) != number {
+    @warn '#{ $digits } is not a number.';
+    @return $number;
+  } @else if not unitless($digits) {
+    @warn '#{ $digits } has a unit.';
+    @return $number;
+  }
+  @if $digits > 0 {
+    @for $i from 1 through $digits {
+      $n: $n * 10;
+    }
+  }
+  @if $mode == round {
+    @return round($number * $n) / $n;
+  } @else if $mode == ceil {
+    @return ceil($number * $n) / $n;
+  } @else if $mode == floor {
+    @return floor($number * $n) / $n;
+  } @else {
+    @warn '#{ $mode } is undefined keyword.';
+    @return $number;
+  }
+}
+// boxshadow mixin
+---------------------------------*/
+@mixin resshad($x,$y,$color,$blur:0,$spreed:0) {
+  @media (max-width: 576px) {
+    box-shadow: decimal-round($x*(576px/1200), 2) decimal-round($y*(576px/1200), 2) decimal-round($blur*(576px/1200), 2) decimal-round($spreed*(576px/1200), 2) $color;
+  }
+  @media (min-width: 576px) {
+    box-shadow: decimal-round($x*(576px/1200), 2) decimal-round($y*(576px/1200), 2) decimal-round($blur*(576px/1200), 2) decimal-round($spreed*(576px/1200), 2) $color;
+  }
+
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) {
+    box-shadow: decimal-round($x*(768px/1200), 2) decimal-round($y*(768px/1200), 2) decimal-round($blur*(768px/1200), 2) decimal-round($spreed*(768px/1200), 2) $color;
+  }
+
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) {
+    box-shadow: decimal-round($x*(992px/1200), 2) decimal-round($y*(992px/1200), 2) decimal-round($blur*(992px/1200), 2) decimal-round($spreed*(992px/1200), 2) $color;
+  }
+
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) {
+    box-shadow: decimal-round($x*(1200px/1200), 2) decimal-round($y*(1200px/1200), 2) decimal-round($blur*(1200px/1200), 2)  decimal-round($spreed*(1200px/1200), 2) $color;
+  }
+
+}
