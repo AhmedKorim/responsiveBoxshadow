@@ -1,15 +1,15 @@
 # responsiveBoxshadow
  creats a responsive css shadow
  
- ## exaple 
- sass input
+ ## EXAMPLE: 
+ ### sass input:
  
          .card{
             @include resshad(1,4,transparentize(black, .8),20,0);
         
         }
 
-css output
+### css output :
 
         @media (max-width: 576px) {
           .card {
