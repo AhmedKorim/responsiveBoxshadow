@@ -43,3 +43,5 @@
 -call the mixin `@include`
 
 -variables on order `xOffset yOffset color blur spreed`
+
+- note :`blur an spreed` **optional**
