@@ -35,7 +35,7 @@
 ---------------------------------*/
 @mixin resshad($x,$y,$color,$blur:0,$spreed:0) {
   @media (max-width: 576px) {
-    box-shadow: decimal-round($x*(576px/1200), 2) decimal-round($y*(576px/1200), 2) decimal-round($blur*(576px/1200), 2) decimal-round($spreed*(576px/1200), 2) $color;
+    box-shadow: decimal-round($x*(575px/1200), 2) decimal-round($y*(576px/1200), 2) decimal-round($blur*(576px/1200), 2) decimal-round($spreed*(576px/1200), 2) $color;
   }
   @media (min-width: 576px) {
     box-shadow: decimal-round($x*(576px/1200), 2) decimal-round($y*(576px/1200), 2) decimal-round($blur*(576px/1200), 2) decimal-round($spreed*(576px/1200), 2) $color;
